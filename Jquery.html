@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tugas JQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script> 
+		$(document).ready(function(){
+			$("#btn").click(function(){
+			    var div = $("#wkwk");
+
+			    runAnimation();
+
+			    function runAnimation(){
+			      div.animate({height:300},"slow");
+			      div.animate({width:300},"slow");
+			      div.css("background-color","blue");  
+			      div.animate({height:100},"slow");
+			      div.animate({width:100},"slow",callBackAnimation);
+			    }
+
+				function callBackAnimation(){
+			      alert("Animation Selesai");
+			      div.css("background-color","yellow");
+			    }
+			});
+
+			$("#btn1").click(function(){
+		        $("#test1").text("Hello world!");
+		        $("#gambarku").attr({
+			        "src" : "https://moondoggiesmusic.com/wp-content/uploads/2018/04/lukisanpemandangangunung.jpg"
+			    });
+		    });
+
+		    $("#btn2").click(function(){
+		        $("#test1").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut velit corporis cumque a sint dolore eos hic quasi quos natus laudantium vitae ipsa tempora veritatis, impedit in, ipsam fuga eius.");
+		        $("#gambarku").attr({
+			        "src" : " https://moondoggiesmusic.com/wp-content/uploads/2018/04/lukisanpemandanganalam-1.jpg"
+			    });
+		    });
+
+		    $("#myInput").on("keyup", function() {
+			    var value = $(this).val().toLowerCase();
+			    $("#myTable tr").filter(function() {
+			      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			    });
+			});
+
+		});
+	</script>
+	<style>
+		table {
+		    font-family: arial, sans-serif;
+		    border-collapse: collapse;
+		    width: 100%;
+		}
+
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: left;
+		    padding: 8px;
+		}
+
+		tr:nth-child(even) {
+		    background-color: #dddddd;
+		}
+	</style>
+</head>
+<body>
+
+	<div style="left:20px;margin-top:20px;">
+		<h2>Jquery Animate()</h2>
+		<button id="btn">Run</button>
+
+		<div id="wkwk" style="width:100px;height:100px;position:absolute;left:20px;top:100px;background-color:yellow;"></div>
+	</div>
+
+	<div style="left:20px;margin-top:400px;">
+		<h2>Jquery Set Content and Attribute</h2>
+
+		<img id="gambarku" src="https://moondoggiesmusic.com/wp-content/uploads/2018/04/lukisanpemandanganalam-1.jpg" width="150" height="150">
+
+		<p id="test1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut velit corporis cumque a sint dolore eos hic quasi quos natus laudantium vitae ipsa tempora veritatis, impedit in, ipsam fuga eius.</p>
+
+		<button id="btn1">Change</button>
+		<button id="btn2">Back</button>
+	</div>
+
+	<div style="left:20px;margin-top:40px;">
+		<h2>Jquery Filter</h2>
+
+		<input id="myInput" type="text" placeholder="Cari...">
+		<br><br>
+
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Firstname</th>
+		      <th>Lastname</th>
+		      <th>Email</th>
+		    </tr>
+		  </thead>
+		  <tbody id="myTable">
+		    <tr>
+		      <td>Agus</td>
+		      <td>Salim</td>
+		      <td>Salim@example.com</td>
+		    </tr>
+		    <tr>
+		      <td>Beta</td>
+		      <td>Aku</td>
+		      <td>AkuBe@mail.com</td>
+		    </tr>
+		    <tr>
+		      <td>Cintia</td>
+		      <td>Vivo</td>
+		      <td>Cintia@greatstuff.com</td>
+		    </tr>
+		    <tr>
+		      <td>Bagus</td>
+		      <td>Doni</td>
+		      <td>Doni@test.com</td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
+
+</body>
+</html>
